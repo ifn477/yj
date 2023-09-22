@@ -1,0 +1,47 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.yj9_1.clcl.SsService">
+
+	<resultMap type="com.ezen.yj9_1.clcl.SchoolDTO" id="solDto">
+		<result property="hakbun" column="hakbun" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="address" column="address" />
+	</resultMap>
+
+	<resultMap type="com.ezen.yj9_1.clcl.ScoreDTO" id="sreDto">
+		<result property="sb" column="sb" />
+		<result property="hakbun" column="hakbun" />
+		<result property="kor" column="kor" />
+		<result property="eng" column="eng" />
+		<result property="mat" column="mat" />
+		<collection property="sdto" resultMap="solDto"></collection>
+	</resultMap>
+
+	<select id="hbNameOut" resultMap="solDto">
+		select sol.hakbun, sol.name,
+		sol.phone
+		from school307 sol, score307 sre
+		where sol.hakbun = sre.hakbun
+		order by
+		sol.hakbun
+	</select>
+
+	<select id="totOut" resultType="int">
+		select (kor+eng+mat)
+		from
+		school307 sol, score307 sre
+		where sol.hakbun = sre.hakbun
+	</select>
+
+	<select id="etcOut" resultMap="sreDto">
+       select sre.sb
+		from score307 sre, school307 sol
+		where sre.hakbun = sol.hakbun
+	</select>
+
+
+</mapper>
+

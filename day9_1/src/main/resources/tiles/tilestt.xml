@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout"
+		template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top"
+			value="/WEB-INF/views/top.jsp" />
+
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/footer.jsp" />
+	</definition>
+
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/main.jsp" />
+	</definition>
+
+	<!-- 모든 jsp파일은 반드시 추가할 것 -->
+	
+	<definition name="out0915" extends="baseLayout">
+		<put-attribute name="title" value="join출력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/out0915.jsp" />
+	</definition>
+	
+	<definition name="infoInput" extends="baseLayout">
+		<put-attribute name="title" value="정보입력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/infoInput.jsp" />
+	</definition>
+	
+	<definition name="scoreInput" extends="baseLayout">
+		<put-attribute name="title" value="점수입력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/scoreInput.jsp" />
+	</definition>
+	
+	<definition name="joinOut" extends="baseLayout">
+		<put-attribute name="title" value="조인출력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/joinOut.jsp" />
+	</definition>
+	
+
+	<definition name="sOut" extends="baseLayout">
+		<put-attribute name="title" value="스코어출력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/sOut.jsp" />
+	</definition>
+	
+	<definition name="sssOut" extends="baseLayout">
+		<put-attribute name="title" value="임시출력" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/sssOut.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

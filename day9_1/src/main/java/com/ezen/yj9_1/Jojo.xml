@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.yj9_1.Service">
+	<select id="out0915" resultType="com.ezen.yj9_1.JoinDTO">
+		select mm.custno, mm.custname, mm.grade, sum(nn.price) as total_price,
+		(case mm.grade 
+		when 'A' then 'VIP'
+		when 'B' then '일반'
+		else '직원'
+		end) as grademark
+		from member_tbl0914 mm, money_tbl0914 nn
+		where mm.custno=nn.custno
+		group by mm.custno,mm.custname,mm.grade
+	</select>
+</mapper>
